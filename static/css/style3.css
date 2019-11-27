@@ -1,0 +1,54 @@
+header.applyHeading {
+    display: block;
+    padding: 5%;
+}
+
+h1.applyPage {
+    text-align: center;
+}
+
+
+
+.card {
+    margin: 0 auto;
+    float: none;
+    margin-bottom: 10px;
+
+}
+
+.footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(246, 248, 250);
+    opacity: 0.7;
+    color: black;
+    text-align: center;
+    margin: auto;
+
+}
+
+div.firstPage {
+    padding-bottom: 5%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    background-image: url("../assests/dome.jpg");
+
+}
+
+div.jumbotron {
+    background: rgba(255, 252, 252, 0.5);
+
+}
+
+div.card {
+    background: rgba(255, 252, 252, 0.5);
+
+}

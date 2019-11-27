@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../static/bootstrap-4.3.1-dist/bootstrap-4.3.1-dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="../static/bootstrap-4.3.1-dist/bootstrap-4.3.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/style4.css">
+    <link rel="stylesheet" href="../static/fontawesome-free-5.11.2-web/fontawesome-free-5.11.2-web/css/all.css">
+
+    <title>The Mandate</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#" id="home">The Mandate</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" id="homepage"><span style="font-size: 25px; color: white;">
+                            <i class="fas fa-home"></i>
+                        </span> <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="logout"><span style="font-size: 25px; color: white;">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+
+        <h1 class="display-4">CANDIDATES</h1>
+
+
+        <div class="container-fluid">
+            <div class="card-deck">
+
+            <% for(var i=0;i<result.length;i++) { %>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= result[i].name %></h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>
+                    <div class="card-footer">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary vote" data-toggle="modal" data-target="#exampleModal" id=<%= result[i].regno %>>
+                            Vote
+                        </button>
+
+                    </div>
+                </div>
+            <% } %>
+           
+            </div>
+        </div>
+        <div class="footer">
+            <p>&copy;2019 Manipal University, jaipur.manipal.edu, Dehmi Kalan, Near GVK Toll Plaza, Jaipur-Ajmer Expressway, Jaipur, Rajasthan 303007.</p>
+        </div>
+
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="../static/bootstrap-4.3.1-dist/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+         $(document).ready(function(){
+          $(".vote").click(function(){
+            var reg = this.id;
+            // console.log(reg);
+            var regn = localStorage.getItem('userid');
+            axios.post('increase_vote',{
+              regno : reg,
+              voter_regno : regn
+            })
+            .then(function (response) {
+                if(response.data.voted==="true")
+                {
+                  alert("Thank You for Voting");
+                  window.location.href = 'student_home';
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+          });
+        });
+        
+
+        $(document).ready(function(){
+          $("#home").click(function(){
+           axios.get('/student_home')
+            .then(function (response) {
+                window.location.href = "student_home";
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+          });
+        });
+
+
+        $(document).ready(function(){
+          $("#homepage").click(function(){
+           axios.get('/student_home')
+            .then(function (response) {
+                window.location.href = "student_home";
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+          });
+        });
+       
+
+        
+        $(document).ready(function(){
+          $("#logout").click(function(){
+           axios.get('/')
+            .then(function (response) {
+                window.location.href = "/";
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+          });
+        });
+
+
+    </script>
+</body>
+
+</html>

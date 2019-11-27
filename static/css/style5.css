@@ -1,0 +1,57 @@
+h1 {
+    text-align: center;
+}
+
+header.applyHeading {
+    display: block;
+    padding: 5%;
+}
+
+
+
+form {
+    padding-bottom: 5%;
+}
+
+.footer {
+    position: static;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(246, 248, 250);
+    opacity: 0.7;
+    color: black;
+    text-align: center;
+    margin: auto;
+
+
+}
+
+div.background {
+    background-image: url("../assests/dome.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.tag {
+    opacity: 0.3;
+}
+
+div.form-group {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+div.form-row {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+div.container {
+    text-align: center;
+
+}
+
+button {
+    display: inline-block;
+}

@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../static/bootstrap-4.3.1-dist/bootstrap-4.3.1-dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="../static/bootstrap-4.3.1-dist/bootstrap-4.3.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/style8.css">
+    <link rel="stylesheet" href="../static/fontawesome-free-5.11.2-web/fontawesome-free-5.11.2-web/css/all.css">
+    <title>The Mandate</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#" id="home">The Mandate</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" id="homepage"><span style="font-size: 25px; color: white;">
+                            <i class="fas fa-home"></i>
+                        </span> <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><span style="font-size: 25px; color: white;">
+                            <i class="fas fa-user"></i>
+                        </span> </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="logout"><span style="font-size: 25px; color: white;">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </span> </a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+        <h1 class="heading">Credentials</h1>
+       
+              <div class="container-fluid">
+                <div class="card-deck">
+                    <% for(var i=0;i<result.length;i++) { %>
+                    <div class="card">
+                      
+                      <div class="card-body">
+                          <ul class="list-group list-group-flush">
+                              <li class="list-group-item">Name: <%= result[i].name %></li>
+                              <li class="list-group-item" id=<%= result[i].regno %>>Registration No: <%= result[i].regno %></li>
+                              <li class="list-group-item" >Branch: <%= result[i].branch %></li>
+                              <li class="list-group-item">Section: <%= result[i].section %></li>
+                              <li class="list-group-item">Gpa: <%= result[i].gpa %></li>
+                              <li class="list-group-item">Cgpa: <%= result[i].cgpa %> </li>
+                              <li class="list-group-item">Attendence: <%= result[i].attendence %></li>
+                              <li class="list-group-item">E-mail: <%= result[i].mail %> </li>
+                              <li class="list-group-item">Contact: <%= result[i].contact %></li>
+                          </ul>
+                        
+                        
+                       <button class="btn btn-primary approve"  data-toggle="modal" data-target="#exampleModal" id=<%= result[i].regno %>>
+                   Approve
+                </button>
+
+
+              <button type="button" class="btn btn-primary decline" data-toggle="modal" data-target="#exampleModal" id=<%= result[i].regno %>>
+                  Decline
+                 </button>
+      
+                  </div>
+              </div>
+      
+
+              <% } %>
+
+
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy;2019 Manipal University, jaipur.manipal.edu, Dehmi Kalan, Near GVK Toll Plaza, Jaipur-Ajmer Expressway, Jaipur, Rajasthan 303007.</p>
+        </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="../static/bootstrap-4.3.1-dist/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+    
+    $(document).ready(function(){
+          $(".approve").click(function(){
+            var reg = this.id;
+            console.log(reg);
+            axios.post('approved_for_cr',{
+              regno : reg
+            })
+            .then(function (response) {
+                if(response.data.submit==="true")
+                {
+                  alert("Successfully Approved");
+                  window.location.href = 'approval';
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+          });
+        });
+
+        $(document).ready(function(){
+          $(".decline").click(function(){
+            var reg = this.id;
+            console.log(reg);
+            axios.post('not_approved_for_cr',{
+              regno : reg
+            })
+            .then(function (response) {
+                if(response.data.submit==="true")
+                {
+                  alert("Successfully Removed");
+                  window.location.href = 'approval';
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+          });
+        });
+    
+        $(document).ready(function(){
+          $("#home").click(function(){
+           axios.get('/teacher_login')
+            .then(function (response) {
+                window.location.href = "teacher_login";
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+          });
+        });
+
+
+        $(document).ready(function(){
+          $("#homepage").click(function(){
+           axios.get('/teacher_login')
+            .then(function (response) {
+                window.location.href = "teacher_login";
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+          });
+        });
+       
+
+        
+        $(document).ready(function(){
+          $("#logout").click(function(){
+           axios.get('/')
+            .then(function (response) {
+                window.location.href = "/";
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+          });
+        });
+
+    </script>
+</body>
+
+</html>

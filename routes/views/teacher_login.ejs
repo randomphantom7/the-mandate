@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../static/bootstrap-4.3.1-dist/bootstrap-4.3.1-dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="../static/bootstrap-4.3.1-dist/bootstrap-4.3.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/styles6.css">
+    <link rel="stylesheet" href="../static/fontawesome-free-5.11.2-web/fontawesome-free-5.11.2-web/css/all.css">
+
+
+    <title>The Mandate</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#" id="home">The Mandate</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" id="homepage"><span style="font-size: 25px; color: white;">
+                            <i class="fas fa-home"></i>
+                        </span><span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><span style="font-size: 25px; color: white;">
+                            <i class="fas fa-poll"></i>
+                        </span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="logout" ><span style="font-size: 25px; color: white;">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </span></a>
+                </li>
+
+            </ul>
+
+        </div>
+    </nav>
+    
+        <h1 class="head">Welcome</h1>
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="../static/assests/candidate11.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Elections</h5>
+
+                <button id="view_candidate" class="btn btn-primary">View Candidates</button>
+            </div>
+        </div>
+        <div class="footer">
+            <p class="ff">&copy;2019 Manipal University, jaipur.manipal.edu, Dehmi Kalan, Near GVK Toll Plaza, Jaipur-Ajmer Expressway, Jaipur, Rajasthan 303007.</p>
+        </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="../static/bootstrap-4.3.1-dist/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      
+      $(document).ready(function(){
+          $("#view_candidate").click(function(){
+            axios.post('approval')
+            .then(function (response) {
+                 window.location.href = "approval";
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+          });
+        });
+
+        $(document).ready(function(){
+          $("#home").click(function(){
+           axios.get('/teacher_login')
+            .then(function (response) {
+                window.location.href = "teacher_login";
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+          });
+        });
+
+
+        $(document).ready(function(){
+          $("#homepage").click(function(){
+           axios.get('/teacher_login')
+            .then(function (response) {
+                window.location.href = "teacher_login";
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+          });
+        });
+       
+
+        
+        $(document).ready(function(){
+          $("#logout").click(function(){
+           axios.get('/')
+            .then(function (response) {
+                window.location.href = "/";
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+          });
+        });
+
+
+
+    </script>
+</body>
+
+</html>

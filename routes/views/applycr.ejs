@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../static/bootstrap-4.3.1-dist/bootstrap-4.3.1-dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="../static/bootstrap-4.3.1-dist/bootstrap-4.3.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/fontawesome-free-5.11.2-web/fontawesome-free-5.11.2-web/css/all.css">
+    <title>The Mandate</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#" id="home">The Mandate</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" id="homepage"><span style="font-size: 25px; color: white;">
+                            <i class="fas fa-home"></i>
+                        </span> <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><span style="font-size: 25px; color: white;">
+                            <i class="fas fa-user"></i>
+                        </span> </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" id="logout"><span style="font-size: 25px; color: white;">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </span> </a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+    <div class="background">
+        <header class="applyHeading">
+            <h1 class="applyPage">Application For Class Representative</h1>
+        </header>
+        <form id="crform">
+            <div class="form-row">
+                <div class="form-group col-md-6 ">
+                    <label for="inputName"><b>Name</b></label>
+                    <input type="text" class="form-control tag" id="inputName" name="name" style="pointer-events: none;">
+                </div>
+                <div class="form-group col-md-6 ">
+                    <label for="inputRegno"><b>Registration Number</b></label>
+                    <input type="text" class="form-control tag" id="inputRegno" name="regno" style="pointer-events: none;">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputSchool"><b>School</b></label>
+                <input type="text" class="form-control tag" id="inputSchool" name="school" placeholder="Ex. Engineering, BJMC, Architecture etc.">
+            </div>
+            <div class="form-group">
+                <label for="inpuBranch"><b>Branch</b></label>
+                <input type="text" class="form-control tag" id="inputBranch" name="branch" placeholder="Ex. Information Technology, Civil etc." style="pointer-events: none;">
+            </div>
+            <div class="form-group">
+                <label for="inputSection"><b>Section</b></label>
+                <input type="text" class="form-control tag" id="inputSection" name="section" placeholder="Ex. A,B,C etc" style="pointer-events: none;">
+            </div>
+            <div class="form-group">
+                <label for="inputCgpa"><b>CGPA</b></label>
+                <input type="text" class="form-control tag" id="inputCgpa" name="cgpa" placeholder="CGPA">
+            </div>
+            <div class="form-group">
+                <label for="inputGpa"><b>GPA</b></label>
+                <input type="text" class="form-control tag" id="inputGpa" name="gpa" placeholder="GPA">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputAttendence"><b>Attendence</b></label>
+                    <input type="text" class="form-control tag" id="inputAttendence" name="attendence">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputMail"><b>Mail</b></label>
+                    <input type="text" class="form-control tag" id="inputMail" name="mail" placeholder="abc" style="pointer-events: none;">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputContactNo"><b>Contact No </b></label>
+                    <input type="text" class="form-control tag" id="inputContactNo" name="contact" placeholder="abc" style="pointer-events: none;">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        <b>Confirm Details</b>
+                    </label>
+                </div>
+            </div>
+            <div class="container">
+                <button type="button" class="btn btn-primary " id="applycouncil">Apply for Council</button>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="submit">
+                    Submit
+                </button>
+                <button type="button" class="btn btn-primary " id="back">Back</button>
+            </div>
+        </form>
+
+        <div class="footer">
+            <p>&copy;2019 Manipal University, jaipur.manipal.edu, Dehmi Kalan, Near GVK Toll Plaza, Jaipur-Ajmer Expressway, Jaipur, Rajasthan 303007.</p>
+        </div>
+    </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      window.onload = fill;
+      function fill(){
+            axios.post('filldata', {
+                regno : localStorage.getItem('userid').toString()
+            })
+            .then(function (response) {
+                console.log(response);
+                document.getElementById("inputName").value = response.data.name;
+                document.getElementById("inputRegno").value = response.data.regno;
+                document.getElementById("inputSection").value = response.data.section;
+                document.getElementById("inputBranch").value = response.data.department;
+                document.getElementById("inputMail").value = response.data.email;
+                document.getElementById("inputContactNo").value = response.data.contact;
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        }
+        
+            $(document).ready(function(){
+          $("#submit").click(function(){
+             var na = document.getElementById("inputName").value;
+             var re = document.getElementById("inputRegno").value;
+             var sc = document.getElementById("inputSchool").value;
+             var br = document.getElementById("inputBranch").value;
+             var se= document.getElementById("inputSection").value;
+             var cg = document.getElementById("inputCgpa").value;
+             var gp= document.getElementById("inputGpa").value;
+             var at = document.getElementById("inputAttendence").value;
+             var ma= document.getElementById("inputMail").value;
+             var co = document.getElementById("inputContactNo").value;
+           axios.post('/savedetail',{
+               name : na,
+               regno : re,
+               school :sc,
+               branch : br,
+               section : se,
+               cgpa : cg,
+               gpa :gp,
+               attendence : at,
+               mail : ma,
+               contact : co,
+               votes :0
+           })
+            .then(function (response) {
+                if(response.data.applied==="true")
+                {
+                    alert("You Have already applied");
+                }
+                else
+                {
+                    alert("Successfully submitted");
+                    window.location.href = "student_home";
+                }
+               
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+          });
+        });
+
+        $(document).ready(function(){
+          $("#back").click(function(){
+            axios.get('/student_home')
+            .then(function (response) {
+               window.location.href = "student_home";
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+          });
+        });
+
+        $(document).ready(function(){
+          $("#applycouncil").click(function(){
+            var re = document.getElementById("inputRegno").value;
+            axios.post('/check_for_cr',{
+                regno : re
+            })
+            .then(function(response){
+                if(response.data.applied==="true")
+                {
+                    window.location.href = "apply_council";
+                }
+                else
+                {
+                    alert("You Have to First apply and get verified for CR");
+                }
+               
+            })
+            .catch(function (error){
+                 console.log(error);
+            });
+        });
+    });
+
+
+    $(document).ready(function(){
+          $("#home").click(function(){
+           axios.get('/student_home')
+            .then(function (response) {
+                window.location.href = "student_home";
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+          });
+        });
+
+
+        $(document).ready(function(){
+          $("#homepage").click(function(){
+           axios.get('/student_home')
+            .then(function (response) {
+                window.location.href = "student_home";
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+          });
+        });
+       
+
+        
+        $(document).ready(function(){
+          $("#logout").click(function(){
+           axios.get('/')
+            .then(function (response) {
+                window.location.href = "/";
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+          });
+        });
+
+      </script>
+</body>
+
+</html>

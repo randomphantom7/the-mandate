@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta hhtp-equiv="X-UA_Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Mandate</title>
+    <link rel="stylesheet" href="../static/bootstrap-4.3.1-dist/bootstrap-4.3.1-dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="../static/bootstrap-4.3.1-dist/bootstrap-4.3.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/styles.css">
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="../static/bootstrap-4.3.1-dist/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+</head>
+
+<body>
+    <nav class="navbar navbar-light">
+        <a class="navbar-brand" href="https://jaipur.manipal.edu/">
+            <img style="display:inline-block" src="../static/assests/logo1.png" width="400" height="80">
+        </a>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="form_bg">
+                <form>
+                    <h2 class="text-center">Login Portal</h2>
+                    <br />
+                    <div class="form-group">
+                        <input type="text" class="form-control"  id="userid" placeholder="User id" style="color:black;">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="pwd" placeholder="Password">
+                    </div>
+
+                    <br>
+
+                    <div class="align-center">
+                        <input type="button" id="submit" class="btn btn-dark" value="Student login" >
+                        <input type="button" id="teacher"  class="btn btn-dark" value="Teacher login" >
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer">
+        <p>&copy;2019 Manipal University, jaipur.manipal.edu, Dehmi Kalan, Near GVK Toll Plaza, Jaipur-Ajmer Expressway, Jaipur, Rajasthan 303007.</p>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        $(document).ready(function(){
+          var user,pass;
+          $("#submit").click(function(){
+            user=$("#userid").val();
+            // console.log(user);
+            pass=$("#pwd").val();
+
+            axios.post('student_home', {
+                user: user,
+                password: pass
+            })
+            .then(function (response) {
+               if(response.data.login==="true")
+                   {
+                    localStorage.setItem('userid', user);
+                       window.location.href = "student_home";
+                   }
+                   else{
+                       alert("Wrong Password");
+                   }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+          });
+        });
+
+        $(document).ready(function(){
+          var user,pass;
+          $("#teacher").click(function(){
+            user=$("#userid").val();
+            // console.log(user);
+            pass=$("#pwd").val();
+            // console.log(pass);
+            axios.post('teacher_login', {
+                user: user,
+                password: pass
+            })
+            .then(function (response) {
+                   if(response.data.login==="true")
+                   {
+                       window.location.href = "teacher_login";
+                   }
+                   else{
+                       alert("Wrong Password");
+                   }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+          });
+        });
+      </script>
+
+
+</body>
+
+</html>
